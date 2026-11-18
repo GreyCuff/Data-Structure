@@ -1,0 +1,72 @@
+
+# Library Management System
+
+class Library:
+
+    # Parameterized constructor
+    def __init__(self, name):
+        self.name = name
+        self.books = []
+        print("Welcome to", self.name)
+
+    # Method to add a book
+    def add_book(self, book):
+        self.books.append(book)
+        print(book, "has been added successfully!")
+
+    # Method to remove a book
+    def remove_book(self, book):
+        if book in self.books:
+            self.books.remove(book)
+            print(book, "has been removed successfully!")
+        else:
+            print("Book not found in the library.")
+
+    # Method to display available books
+    def display_books(self):
+        if len(self.books) == 0:
+            print("No books are currently available.")
+        else:
+            print("\nAvailable Books:")
+            for book in self.books:
+                print("-", book)
+
+    # Destructor
+    def __del__(self):
+        print("Library management session closed.")
+
+
+# Create a library object
+library = Library("Sunshine Digital Library")
+
+# Menu-driven program
+while True:
+
+    print("\n--- Library Management System ---")
+    print("1. Add a Book")
+    print("2. Remove a Book")
+    print("3. Display All Books")
+    print("4. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        book = input("Enter the book name: ")
+        library.add_book(book)
+
+    elif choice == "2":
+        book = input("Enter the book name to remove: ")
+        library.remove_book(book)
+
+    elif choice == "3":
+        library.display_books()
+
+    elif choice == "4":
+        print("Thank you for visiting the library!")
+        break
+
+    else:
+        print("Invalid choice. Please try again.")
+
+# Delete the library object
+del library
