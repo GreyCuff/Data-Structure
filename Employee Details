@@ -1,0 +1,47 @@
+
+# Employee Details (Activity 1, DSCM2L5)
+
+# Parent class
+class Employee:
+
+    def __init__(self, name, employee_id):
+        self.name = name
+        self.employee_id = employee_id
+
+    def display_details(self):
+        print("Employee Name:", self.name)
+        print("Employee ID:", self.employee_id)
+
+
+# Child class
+class Developer(Employee):
+
+    def __init__(self, name, employee_id, department, salary):
+        super().__init__(name, employee_id)
+        self.department = department
+        self.salary = salary
+
+    def show_information(self):
+        self.display_details()
+        print("Department:", self.department)
+        print("Monthly Salary:", self.salary)
+
+
+# Create employee objects
+employee1 = Developer("Aarav", 201, "Software Development", 45000)
+employee2 = Developer("Riya", 202, "Data Analytics", 50000)
+
+# Display first employee details
+print("--- Employee 1 ---")
+employee1.show_information()
+
+# Display second employee details
+print("\n--- Employee 2 ---")
+employee2.show_information()
+
+# Check inheritance
+print("\nIs Developer a subclass of Employee?")
+print(issubclass(Developer, Employee))
+
+print("\nIs employee1 an instance of Employee?")
+print(isinstance(employee1, Employee))
