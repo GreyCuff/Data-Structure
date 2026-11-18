@@ -1,0 +1,82 @@
+
+# Encapsulation Implementation Activity
+
+class BankAccount:
+
+    # Parameterized constructor
+    def __init__(self, holder, balance):
+        self.holder = holder
+        self.__balance = 0
+        self.set_balance(balance)
+
+    # Getter method
+    def get_balance(self):
+        return self.__balance
+
+    # Setter method
+    def set_balance(self, amount):
+        if amount >= 0:
+            self.__balance = amount
+        else:
+            print("Balance cannot be negative.")
+
+    # Method to deposit money
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print("Amount deposited successfully!")
+        else:
+            print("Invalid deposit amount.")
+
+    # Method to withdraw money
+    def withdraw(self, amount):
+        if amount > 0 and amount <= self.__balance:
+            self.__balance -= amount
+            print("Withdrawal successful!")
+        else:
+            print("Invalid amount or insufficient balance.")
+
+    # Method to display account details
+    def display_details(self):
+        print("Account Holder:", self.holder)
+        print("Current Balance:", self.get_balance())
+
+
+# Create a bank account object
+account = BankAccount("Daniel", 5000)
+
+print("--- Bank Account Management ---")
+
+account.display_details()
+
+# Deposit money
+print("\n--- Deposit Operation ---")
+account.deposit(2000)
+account.display_details()
+
+# Withdraw money
+print("\n--- Withdrawal Operation ---")
+account.withdraw(1500)
+account.display_details()
+
+# Update balance using setter
+print("\n--- Updating Balance ---")
+account.set_balance(8000)
+print("Updated Balance:", account.get_balance())
+
+# Test invalid operations
+print("\n--- Validation Test ---")
+account.set_balance(-1000)
+account.deposit(-500)
+account.withdraw(10000)
+
+# Display final balance
+print("\nFinal Balance:", account.get_balance())
+
+# Test direct access to private variable
+try:
+    print(account.__balance)
+except AttributeError:
+    print("Private balance cannot be accessed directly.")
+
+print("\nProgram completed successfully!")
