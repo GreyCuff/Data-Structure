@@ -1,0 +1,64 @@
+# Step 1: Create tuples containing movie information.
+movie1 = ("Inception", "Sci-Fi", 2010, 148)
+movie2 = ("Interstellar", "Adventure", 2014, 169)
+movie3 = ("Coco", "Animation", 2017, 105)
+
+movies = (movie1, movie2, movie3)
+
+print("Movie Collection:", movies)
+
+# Step 2: Access tuple elements.
+print("\nFirst movie:", movie1[0])
+print("Movie genre:", movie1[1])
+print("Release year:", movie1[2])
+print("Last detail:", movie1[-1])
+
+# Step 3: Perform tuple slicing.
+print("\nFirst two details:", movie1[:2])
+print("Last two details:", movie2[2:])
+
+# Step 4: Find the length of a tuple.
+print("\nTotal details in movie1:", len(movie1))
+print("Total movies:", len(movies))
+
+# Step 5: Loop through tuple elements.
+print("\nMovie information:")
+for detail in movie1:
+    print("-", detail)
+
+# Step 6: Check whether an element exists.
+print("\nIs Sci-Fi available?", "Sci-Fi" in movie1)
+print("Is Comedy available?", "Comedy" in movie1)
+
+# Step 7: Count and find elements.
+genres = ("Action", "Comedy", "Action", "Drama", "Action")
+
+print("\nAction appears:", genres.count("Action"), "times")
+print("First Action position:", genres.index("Action"))
+
+# Step 8: Combine two tuples.
+old_movies = ("Titanic", "Avatar")
+new_movies = ("Frozen", "Moana")
+
+all_movies = old_movies + new_movies
+print("\nCombined movie collection:", all_movies)
+
+# Step 9: Repeat a tuple.
+favourite = ("Inception",)
+print("Repeated favourite movie:", favourite * 3)
+
+# Step 10: Convert a tuple into a list to make changes.
+movie_list = list(movie1)
+movie_list[0] = "The Dark Knight"
+
+updated_movie = tuple(movie_list)
+print("\nUpdated movie tuple:", updated_movie)
+
+# Step 11: Edge cases.
+empty_tuple = ()
+single_movie = ("Joker",)
+
+print("\nEmpty tuple:", empty_tuple)
+print("Empty tuple length:", len(empty_tuple))
+print("Single-element tuple:", single_movie)
+print("Is it a tuple?", type(single_movie).__name__)
