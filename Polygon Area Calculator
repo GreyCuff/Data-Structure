@@ -1,0 +1,80 @@
+
+# Polygon Area Calculator Activity
+
+from abc import ABC, abstractmethod
+
+
+# Parent abstract class
+class Polygon(ABC):
+
+    @abstractmethod
+    def area(self):
+        pass
+
+
+# First child class
+class Rectangle(Polygon):
+
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+
+# Second child class
+class Triangle(Polygon):
+
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return 0.5 * self.base * self.height
+
+
+# Third child class
+class Square(Polygon):
+
+    def __init__(self, side):
+        self.side = side
+
+    def area(self):
+        return self.side ** 2
+
+
+# Fourth child class
+class Parallelogram(Polygon):
+
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return self.base * self.height
+
+
+# Create polygon objects
+rectangle = Rectangle(12, 6)
+triangle = Triangle(10, 8)
+square = Square(7)
+parallelogram = Parallelogram(9, 5)
+
+# Store objects in a list
+shapes = [rectangle, triangle, square, parallelogram]
+
+# Display calculated areas
+print("--- Polygon Area Calculator ---")
+
+for shape in shapes:
+    print("Shape:", type(shape).__name__)
+    print("Area:", shape.area(), "square units")
+    print()
+
+# Check inheritance
+print("Is Square a subclass of Polygon?")
+print(issubclass(Square, Polygon))
+
+print("\nIs triangle an instance of Polygon?")
+print(isinstance(triangle, Polygon))
