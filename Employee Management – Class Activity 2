@@ -1,0 +1,33 @@
+
+# Employee Management - 2 (complete activity 2, DSCM2L3).
+# Python 3 standard library only.
+# Run: python employee_management_2.py
+
+
+class Employee:
+    company = "Tech Solutions"                              # A: class variable
+
+    def introduction(self):
+        """A method: a function inside the class. self refers to the object calling it."""
+        # Step 1: First method
+        return "Hello, I work at " + self.company
+
+    def details(self):
+        # Step 2: Method that reads the object's own data
+        return f"My name is {self.name} and I work in the {self.department} department."
+
+
+alex = Employee()                                           # B: one object
+alex.name = input("Employee name? ")                        # C: data stored on
+alex.department = input("Department? ")                     #    this object only
+
+print(alex.introduction())
+print(alex.details())
+print(Employee.details(alex))                               # D: same call written out; self is alex
+
+# Step 3: Same methods, another object
+sophia = Employee()
+sophia.name = "Sophia"
+sophia.department = "Marketing"
+
+print(sophia.details())
