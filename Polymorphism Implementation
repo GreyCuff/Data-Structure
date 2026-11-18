@@ -1,0 +1,68 @@
+
+# Polymorphism Implementation Activity
+
+# Parent class
+class Vehicle:
+
+    def move(self):
+        print("Every vehicle has its own way of moving.")
+
+
+# First child class
+class Car(Vehicle):
+
+    def move(self):
+        print("A car drives on the road.")
+
+
+# Second child class
+class Aeroplane(Vehicle):
+
+    def move(self):
+        print("An aeroplane flies in the sky.")
+
+
+# Third child class
+class Boat(Vehicle):
+
+    def move(self):
+        print("A boat sails across the water.")
+
+
+# Fourth child class
+class Train(Vehicle):
+
+    def move(self):
+        print("A train travels on railway tracks.")
+
+
+# Create objects
+car = Car()
+aeroplane = Aeroplane()
+boat = Boat()
+train = Train()
+
+# Function demonstrating polymorphism
+def vehicle_movement(vehicle):
+    vehicle.move()
+
+
+# Call the same function with different objects
+print("--- Vehicle Movement System ---\n")
+
+vehicle_movement(car)
+vehicle_movement(aeroplane)
+vehicle_movement(boat)
+vehicle_movement(train)
+
+# Implement polymorphism using a loop
+print("\n--- Transportation Demonstration ---")
+
+vehicles = [car, aeroplane, boat, train]
+
+for vehicle in vehicles:
+    print("Vehicle Type:", type(vehicle).__name__)
+    vehicle.move()
+    print()
+
+print("Program completed successfully!")
