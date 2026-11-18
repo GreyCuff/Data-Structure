@@ -1,0 +1,64 @@
+# Step 1: Create two sets of travel destinations.
+summer_trips = {"Paris", "London", "Dubai", "Tokyo", "Rome"}
+winter_trips = {"Tokyo", "Switzerland", "Dubai", "New York", "Canada"}
+
+print("Summer destinations:", summer_trips)
+print("Winter destinations:", winter_trips)
+
+# Step 2: Find the number of destinations.
+print("\nTotal summer destinations:", len(summer_trips))
+print("Total winter destinations:", len(winter_trips))
+
+# Step 3: Add a new destination.
+new_place = input("\nEnter a destination to add to summer trips: ")
+summer_trips.add(new_place)
+print("Updated summer destinations:", summer_trips)
+
+# Step 4: Remove destinations safely.
+summer_trips.discard("London")
+summer_trips.discard("Singapore")
+print("\nAfter removing destinations:", summer_trips)
+
+# Step 5: Perform union operation.
+all_destinations = summer_trips.union(winter_trips)
+print("\nAll destinations:", sorted(all_destinations))
+
+# Step 6: Find common destinations.
+common_destinations = summer_trips.intersection(winter_trips)
+print("Common destinations:", sorted(common_destinations))
+
+# Step 7: Find destinations only in summer trips.
+summer_only = summer_trips.difference(winter_trips)
+print("Summer-only destinations:", sorted(summer_only))
+
+# Step 8: Find destinations that are not common.
+different_destinations = summer_trips.symmetric_difference(winter_trips)
+print("Different destinations:", sorted(different_destinations))
+
+# Step 9: Check whether a destination exists.
+print("\nIs Paris in summer trips?", "Paris" in summer_trips)
+print("Is India in winter trips?", "India" in winter_trips)
+
+# Step 10: Check subset and superset.
+small_group = {"Tokyo", "Dubai"}
+
+print("\nAre selected destinations a subset?",
+      small_group.issubset(all_destinations))
+
+print("Is the complete collection a superset?",
+      all_destinations.issuperset(small_group))
+
+# Step 11: Copy and clear a set.
+backup_destinations = summer_trips.copy()
+print("\nBackup destinations:", backup_destinations)
+
+backup_destinations.clear()
+print("Cleared backup:", backup_destinations)
+
+# Step 12: Edge cases.
+empty_set = set()
+
+print("\nEmpty set:", empty_set)
+print("Empty set length:", len(empty_set))
+print("Intersection with an empty set:",
+      summer_trips.intersection(empty_set))
