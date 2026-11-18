@@ -1,0 +1,63 @@
+
+# Animal Class Activity
+
+from abc import ABC, abstractmethod
+
+
+# Parent abstract class
+class Animal(ABC):
+
+    def __init__(self, name):
+        self.name = name
+
+    @abstractmethod
+    def sound(self):
+        pass
+
+    def introduce(self):
+        print("My name is", self.name)
+
+
+# First child class
+class Lion(Animal):
+
+    def sound(self):
+        print(self.name, "makes a roaring sound!")
+
+
+# Second child class
+class Elephant(Animal):
+
+    def sound(self):
+        print(self.name, "makes a trumpeting sound!")
+
+
+# Third child class
+class Monkey(Animal):
+
+    def sound(self):
+        print(self.name, "makes a chattering sound!")
+
+
+# Create animal objects
+lion = Lion("Simba")
+elephant = Elephant("Dumbo")
+monkey = Monkey("Charlie")
+
+# Store objects in a list
+animals = [lion, elephant, monkey]
+
+# Display animal information and sounds
+print("--- Welcome to the Wildlife Park ---")
+
+for animal in animals:
+    animal.introduce()
+    animal.sound()
+    print()
+
+# Check inheritance
+print("Is Lion a subclass of Animal?")
+print(issubclass(Lion, Animal))
+
+print("\nIs elephant an instance of Animal?")
+print(isinstance(elephant, Animal))
