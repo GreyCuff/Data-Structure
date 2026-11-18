@@ -1,0 +1,38 @@
+
+# Employee Management (complete activity 1, DSCM2L3).
+# Python 3 standard library only.
+# Run: python employee_management.py
+
+# A: The class keyword creates a blueprint called Employee.
+class Employee:
+    # B: This print runs ONCE when Python reads the class definition.
+    print("Python read the Employee blueprint.")
+
+    company = "Tech Solutions"       # C: A class variable shared by every Employee.
+
+    # Step 1: Add a class variable.
+    department = "IT"
+    print("Class variable department:", department)
+
+
+# Step 2: Create two objects.
+alex = Employee()
+sophia = Employee()
+
+print("alex is a", type(alex))                              # D
+
+# Step 3: Read shared class variables.
+print("Alex's company:", alex.company, "| Sophia's department:", sophia.department)
+
+new_department = input("Enter a new department: ")
+Employee.department = new_department
+
+print("After changing the department: Alex", alex.department,
+      "| Sophia", sophia.department)
+
+# Step 4: Edge case: Give one object its own value.
+alex.department = "Human Resources"
+
+print("Alex:", alex.department,
+      "| Sophia:", sophia.department,
+      "| Employee:", Employee.department)
