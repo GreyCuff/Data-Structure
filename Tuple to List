@@ -1,0 +1,57 @@
+# Step 1: Create a tuple containing product information.
+products = ("Laptop", "Mouse", "Keyboard", "Monitor", "Headphones")
+
+print("Original Tuple:", products)
+print("Tuple Type:", type(products).__name__)
+
+# Step 2: Convert the tuple into a list.
+product_list = list(products)
+
+print("\nConverted List:", product_list)
+print("List Type:", type(product_list).__name__)
+
+# Step 3: Access list elements.
+print("\nFirst Product:", product_list[0])
+print("Last Product:", product_list[-1])
+
+# Step 4: Add a new product.
+new_product = input("\nEnter a product to add: ")
+product_list.append(new_product)
+
+print("After Adding:", product_list)
+
+# Step 5: Update an existing product.
+product_list[1] = "Wireless Mouse"
+print("\nAfter Updating:", product_list)
+
+# Step 6: Remove a product.
+remove_product = input("\nEnter a product to remove: ")
+
+if remove_product in product_list:
+    product_list.remove(remove_product)
+    print(remove_product, "has been removed.")
+else:
+    print("Product not found.")
+
+print("Updated Product List:", product_list)
+
+# Step 7: Sort the list alphabetically.
+product_list.sort()
+print("\nSorted Products:", product_list)
+
+# Step 8: Find the total number of products.
+print("Total Products:", len(product_list))
+
+# Step 9: Convert the modified list back into a tuple.
+updated_products = tuple(product_list)
+
+print("\nFinal Tuple:", updated_products)
+print("Final Type:", type(updated_products).__name__)
+
+# Step 10: Edge cases.
+empty_tuple = ()
+empty_list = list(empty_tuple)
+
+print("\nEmpty Tuple:", empty_tuple)
+print("Converted Empty List:", empty_list)
+print("Empty List Length:", len(empty_list))
