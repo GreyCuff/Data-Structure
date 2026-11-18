@@ -1,0 +1,48 @@
+class Robot:
+
+    # Class variable
+    category = "Smart Robot"
+
+    # Parameterized constructor
+    def __init__(self, name, colour, purpose):
+        self.name = name
+        self.colour = colour
+        self.purpose = purpose
+
+    # Method to introduce the robot
+    def introduce(self):
+        print("Hello! My name is", self.name)
+        print("My colour is", self.colour)
+        print("My purpose is", self.purpose)
+
+    # Method to perform a task
+    def perform_task(self):
+        print(self.name, "is ready to perform its task!")
+
+    # Method to shut down the robot
+    def shutdown(self):
+        print(self.name, "is powering off. Goodbye!")
+
+
+# Create robot objects
+robot1 = Robot("Nova", "Silver", "Space Exploration")
+robot2 = Robot("Pixel", "Blue", "Helping Students")
+
+# Introduce the first robot
+print("First Robot Introduction")
+print("------------------------")
+
+robot1.introduce()
+robot1.perform_task()
+robot1.shutdown()
+
+# Introduce the second robot
+print("\nSecond Robot Introduction")
+print("-------------------------")
+
+robot2.introduce()
+robot2.perform_task()
+robot2.shutdown()
+
+# Access the class variable
+print("\nRobot Category:", Robot.category)
