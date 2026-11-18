@@ -1,0 +1,64 @@
+class Parrot:
+
+    species = "Parrot"
+
+    def __init__(self, name, age):
+        self.name = name
+
+        if age < 0:
+            age = 0
+
+        self.age = age
+
+    # Method to sing a song
+    def sing(self, song):
+        if song == "":
+            return self.name + " is resting quietly."
+
+        return self.name + " is singing " + song
+
+    # Method to perform a dance
+    def dance(self):
+        return self.name + " is dancing happily!"
+
+    # Method to celebrate a birthday
+    def birthday(self):
+        self.age += 1
+        return self.name + " is now " + str(self.age) + " years old!"
+
+
+# Create two parrot objects
+mango = Parrot("Mango", 3)
+coco = Parrot("Coco", 5)
+
+# Display parrot details
+print("Name:", mango.name)
+print("Age:", mango.age)
+print("Species:", mango.species)
+
+print()
+
+print("Name:", coco.name)
+print("Age:", coco.age)
+print("Species:", coco.species)
+
+# Call singing and dancing methods
+print()
+print(mango.sing("Twinkle Twinkle"))
+print(coco.sing("Happy Birthday"))
+
+print(mango.dance())
+print(coco.dance())
+
+# Celebrate birthdays
+print()
+print(mango.birthday())
+print(coco.birthday())
+
+# Check an empty song
+print()
+print(mango.sing(""))
+
+# Check an invalid age
+lucky = Parrot("Lucky", -3)
+print(lucky.name, "is", lucky.age, "years old.")
