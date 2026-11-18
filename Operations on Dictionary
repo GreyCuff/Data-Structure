@@ -1,0 +1,70 @@
+
+# Library Book Organiser (complete activity, DSCM2L1).
+# Python 3 standard library only.
+# Run: python library_book_organiser.py
+# (or paste into one Google Colab cell and press Run)
+# Time: O(n log n) overall, because sort() is the slowest step.
+# Space: O(n) for the list and dictionaries (n = number of books).
+
+# A. Step 1: A list of library books in the order they were added.
+books = ["Harry Potter", "Matilda", "The Hobbit", "Charlotte's Web", "Wonder"]
+print("Book collection:", books)
+
+# Step 2: Read the list without changing it.
+print("Total books:", len(books))
+print("First book:", books[0], "| Last book:", books[-1])
+print("First three books:", books[:3])
+
+
+# Step 3: Change the list.
+def remove_book(titles, title):
+    """Remove a book only if it exists in the collection."""
+    if title in titles:
+        titles.remove(title)
+        return True
+    return False
+
+
+books.append("The Jungle Book")                         # B: O(1), adds to the end
+leaver = input("Which book should be removed? ")
+print("Remove", leaver + ":", remove_book(books, leaver))
+print("Remove Cinderella (not in collection):", remove_book(books, "Cinderella"))
+books.sort()                                             # C: O(n log n), A to Z
+print("Sorted books:", books)
+
+# D. Step 4: Create a dictionary with library information.
+library = {
+    "name": "City Library",
+    "category": "Public Library",
+    "total_books": 500
+}
+print("\nLibrary details:", library)
+
+# Step 5: Read, update, add and remove dictionary keys.
+print("Category:", library["category"])
+print("Contact:", library.get("contact", "Not found"))
+
+library["total_books"] = 600
+library["location"] = "Main Street"
+library.pop("total_books")
+
+print("Updated library details:", library)
+
+# Step 6: Two lists that match position by position.
+book_ids = [1, 2, 3, 4, 5]                              # E
+book_directory = dict(zip(book_ids, books))
+print("\nBook directory:", book_directory)
+
+
+def find_book(directory, book_id):
+    """O(1) on average: a dictionary finds a value using its key."""
+    return directory.get(book_id, "No book found with that ID")
+
+
+book_id = int(input("Enter a book ID to search: "))
+print(f"Book ID {book_id}:", find_book(book_directory, book_id))
+print("Book ID 9:", find_book(book_directory, 9))       # F: missing key
+
+empty_library = []                                      # G: empty list edge case
+print("Empty library:", len(empty_library), empty_library[:3],
+      remove_book(empty_library, "Matilda"))
