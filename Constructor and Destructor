@@ -1,0 +1,43 @@
+class Laptop:
+
+    # Constructor
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+        print("Laptop object has been created!")
+
+    # Method to display laptop details
+    def display_details(self):
+        print("Brand:", self.brand)
+        print("Model:", self.model)
+
+    # Method to start the laptop
+    def start(self):
+        print(self.brand, "laptop is starting...")
+
+    # Destructor
+    def __del__(self):
+        print(self.brand, "laptop object has been destroyed!")
+
+
+# Create the first object
+laptop1 = Laptop("Dell", "Inspiron")
+
+laptop1.display_details()
+laptop1.start()
+
+print()
+
+# Create the second object
+laptop2 = Laptop("HP", "Pavilion")
+
+laptop2.display_details()
+laptop2.start()
+
+print()
+
+# Delete the objects
+del laptop1
+del laptop2
+
+print("Program completed successfully!")
