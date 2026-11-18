@@ -1,0 +1,67 @@
+# Music Club Organiser (complete activity, DSCM2L1).
+# Python 3 standard library only.
+# Run: python music_club_organiser.py
+# (or paste into one Google Colab cell and press Run)
+# Time: O(n log n) overall, because sort() is the slowest step.
+# Space: O(n) for the list and dictionaries (n = number of members).
+
+# A. Step 1: a list of music club members in the order they joined.
+club_members = ["Alex", "Mia", "Ryan", "Sophia", "Leo"]
+print("Club members:", club_members)
+
+# Step 2: read the list without changing it.
+print("Total members:", len(club_members))
+print("First member:", club_members[0], "| Last member:", club_members[-1])
+print("First three members:", club_members[:3])
+
+
+# Step 3: change the list.
+def remove_member(names, name):
+    """Remove a member only if they are in the list."""
+    if name in names:
+        names.remove(name)
+        return True
+    return False
+
+
+club_members.append("Emma")                                  # B: O(1), adds to the end
+leaver = input("Which member is leaving the music club? ")
+print("Remove", leaver + ":", remove_member(club_members, leaver))
+print("Remove Noah (not in the club):", remove_member(club_members, "Noah"))
+club_members.sort()                                          # C: O(n log n), A to Z
+print("Alphabetical member list:", club_members)
+
+# D. Step 4: a dictionary containing information about the music club coordinator.
+coordinator = {
+    "name": "Ms. Johnson",
+    "role": "Music Coordinator",
+    "experience": 5
+}
+print("\nCoordinator:", coordinator)
+
+# Step 5: read, update, add and remove dictionary keys.
+print("Role:", coordinator["role"])
+print("Email:", coordinator.get("email", "Not found"))
+coordinator["experience"] = 6
+coordinator["room"] = "Music Room"
+coordinator.pop("experience")
+print("Updated coordinator details:", coordinator)
+
+# Step 6: two lists that match position by position.
+member_ids = [1, 2, 3, 4, 5]                                # E
+member_directory = dict(zip(member_ids, club_members))
+print("\nMember directory:", member_directory)
+
+
+def find_member_by_id(directory, member_id):
+    """O(1) on average: a dictionary looks up a value using its key."""
+    return directory.get(member_id, "No member found with that ID")
+
+
+member_id = int(input("Enter a member ID to search: "))
+print(f"Member ID {member_id}:", find_member_by_id(member_directory, member_id))
+print("Member ID 9:", find_member_by_id(member_directory, 9))  # F: edge case, missing key
+
+empty_club = []                                               # G: edge case, empty list
+print("Empty club:", len(empty_club), empty_club[:3],
+      remove_member(empty_club, "Leo"))
