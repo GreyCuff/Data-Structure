@@ -1,0 +1,48 @@
+# Step 1: Create two sets of club members.
+football_team = {"Aarav", "Diya", "Kabir", "Meera", "Rohan"}
+basketball_team = {"Meera", "Rohan", "Ananya", "Ishaan", "Kabir"}
+
+print("Football Team:", football_team)
+print("Basketball Team:", basketball_team)
+
+# Step 2: Count the number of players.
+print("\nFootball Players:", len(football_team))
+print("Basketball Players:", len(basketball_team))
+
+# Step 3: Find common players using intersection().
+common_players = football_team.intersection(basketball_team)
+print("\nPlayers in Both Teams:", common_players)
+
+# Step 4: Find common players using the & operator.
+shared_players = football_team & basketball_team
+print("Shared Players:", shared_players)
+
+# Step 5: Display the number of common players.
+print("Total Common Players:", len(common_players))
+
+# Step 6: Search for a particular player.
+player = input("\nEnter a player name to check: ")
+
+if player in common_players:
+    print(player, "plays in both teams.")
+else:
+    print(player, "does not play in both teams.")
+
+# Step 7: Add a new player to both teams.
+new_player = input("\nEnter a new player name: ")
+football_team.add(new_player)
+basketball_team.add(new_player)
+
+print("Updated Football Team:", football_team)
+print("Updated Basketball Team:", basketball_team)
+
+# Step 8: Perform intersection again.
+updated_common = football_team.intersection(basketball_team)
+print("\nUpdated Common Players:", updated_common)
+
+# Step 9: Sort common players alphabetically.
+print("Alphabetical Common Players:", sorted(updated_common))
+
+# Step 10: Edge case - intersection with an empty set.
+empty_team = set()
+print("Intersection with Empty Team:", football_team.intersection(empty_team))
