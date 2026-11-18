@@ -1,0 +1,46 @@
+# Step 1: Create two sets of students.
+coding_club = {"Aarav", "Diya", "Kabir", "Meera", "Rohan"}
+dance_club = {"Meera", "Rohan", "Ananya", "Ishaan", "Tara"}
+
+print("Coding Club Members:", coding_club)
+print("Dance Club Members:", dance_club)
+
+# Step 2: Find the total number of members.
+print("\nCoding Club Total:", len(coding_club))
+print("Dance Club Total:", len(dance_club))
+
+# Step 3: Perform set union.
+all_members = coding_club.union(dance_club)
+print("\nAll Club Members:", all_members)
+
+# Step 4: Perform union using the | operator.
+combined_members = coding_club | dance_club
+print("Combined Members:", combined_members)
+
+# Step 5: Count the unique members.
+print("Total Unique Members:", len(all_members))
+
+# Step 6: Check whether a student is included.
+student = input("\nEnter a student name to search: ")
+
+if student in all_members:
+    print(student, "is a member of at least one club.")
+else:
+    print(student, "is not registered in any club.")
+
+# Step 7: Add a new member.
+new_member = input("\nEnter a new coding club member: ")
+coding_club.add(new_member)
+
+print("Updated Coding Club:", coding_club)
+
+# Step 8: Perform union again after updating.
+updated_members = coding_club.union(dance_club)
+print("Updated Combined Members:", updated_members)
+
+# Step 9: Sort the combined members for display.
+print("\nAlphabetical Member List:", sorted(updated_members))
+
+# Step 10: Edge case - union with an empty set.
+empty_club = set()
+print("Union with empty set:", coding_club.union(empty_club))
