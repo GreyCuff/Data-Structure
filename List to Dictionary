@@ -1,0 +1,60 @@
+
+# Student Marks Directory (complete activity).
+# Python 3 standard library only.
+# Run: python student_marks_directory.py
+
+# Step 1: Create two lists.
+student_ids = [201, 202, 203, 204, 205]
+student_names = ["Aarav", "Diya", "Kabir", "Meera", "Arjun"]
+
+print("Student IDs:", student_ids)
+print("Student Names:", student_names)
+
+# Step 2: Convert two lists into a dictionary.
+student_directory = dict(zip(student_ids, student_names))
+print("\nStudent Directory:", student_directory)
+
+# Step 3: Access dictionary values.
+print("Student with ID 201:", student_directory[201])
+print("Student with ID 203:", student_directory[203])
+
+# Step 4: Add a new student.
+new_id = int(input("\nEnter a new student ID: "))
+new_name = input("Enter the student name: ")
+
+student_directory[new_id] = new_name
+print("Updated Directory:", student_directory)
+
+# Step 5: Update an existing student's name.
+update_id = int(input("\nEnter the ID to update: "))
+
+if update_id in student_directory:
+    updated_name = input("Enter the updated name: ")
+    student_directory[update_id] = updated_name
+    print("Student record updated.")
+else:
+    print("Student ID not found.")
+
+# Step 6: Search for a student.
+search_id = int(input("\nEnter an ID to search: "))
+print("Search Result:", student_directory.get(search_id, "Student not found"))
+
+# Step 7: Remove a student.
+remove_id = int(input("\nEnter an ID to remove: "))
+
+removed_student = student_directory.pop(remove_id, None)
+
+if removed_student is not None:
+    print(removed_student, "has been removed.")
+else:
+    print("Student ID not found.")
+
+# Step 8: Display the final dictionary.
+print("\nFinal Student Directory:")
+for student_id, student_name in student_directory.items():
+    print(student_id, ":", student_name)
+
+# Step 9: Display dictionary information.
+print("\nTotal students:", len(student_directory))
+print("All student IDs:", list(student_directory.keys()))
+print("All student names:", list(student_directory.values()))
