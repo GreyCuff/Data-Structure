@@ -1,0 +1,26 @@
+class Parrot:
+    species = "Tropical Bird"                                 # A: class variable
+
+    def __init__(self, name, age):
+        """Automatically runs whenever a Parrot object is created."""
+        # Step 1: Assign instance variables.
+        self.name = name
+        if age < 0:
+            age = 0
+        self.age = age
+
+
+# Step 2: Create two parrot objects.
+first_name = input("Enter the first parrot's name: ")
+rio = Parrot(first_name, 4)
+kiwi = Parrot("Kiwi", 7)
+
+print(rio.name, "belongs to the", rio.species, "species.")    # B: class variable
+print(kiwi.name, "is also a", Parrot.species)                 # Access using class name
+
+print(rio.name, "is", rio.age, "years old.")                  # C: instance variables
+print(kiwi.name, "is", kiwi.age, "years old.")
+
+# Step 3: Handle an invalid age.
+polly = Parrot("Polly", -2)
+print(polly.name, "is", polly.age, "years old.")
