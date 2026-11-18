@@ -1,0 +1,47 @@
+
+# Student Details Activity
+
+# Parent class
+class Person:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display_details(self):
+        print("Student Name:", self.name)
+        print("Age:", self.age)
+
+
+# Child class
+class Student(Person):
+
+    def __init__(self, name, age, roll_number, grade):
+        super().__init__(name, age)
+        self.roll_number = roll_number
+        self.grade = grade
+
+    def show_information(self):
+        self.display_details()
+        print("Roll Number:", self.roll_number)
+        print("Grade:", self.grade)
+
+
+# Create student objects
+student1 = Student("Alex", 14, 105, 8)
+student2 = Student("Sophia", 15, 112, 9)
+
+# Display first student details
+print("--- Student 1 ---")
+student1.show_information()
+
+# Display second student details
+print("\n--- Student 2 ---")
+student2.show_information()
+
+# Check inheritance
+print("\nIs Student a subclass of Person?")
+print(issubclass(Student, Person))
+
+print("\nIs student1 an instance of Person?")
+print(isinstance(student1, Person))
